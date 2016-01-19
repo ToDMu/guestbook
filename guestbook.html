@@ -1,0 +1,28 @@
+<body>
+  <h1>Welcome to Our Guestbook</h1>
+  {{> guestBook}}
+</body>
+
+<template name="guestBook">
+
+  <div class='col-xs-3'>
+
+  <form>
+      <div class="form-group">
+        <label for="guestName">Name</label>
+        <input type="text" class="form-control" name="guestName" />
+      </div>
+      <div class="form-group">
+        <label for="guestBookMessage">Message</label>
+        <textarea name="guestBookMessage" class="form-control" cols="30" rows="3"></textarea>
+      </div>
+        <button type="submit" class="btn btn-primary">Post Message</button>
+  </form>
+
+
+{{#each messages}}
+  <button class="delete">&times;</button>
+  <p><strong>{{ name }}</strong>: {{ message }} - {{ createdOn }}</p>
+{{/each}}
+</div>
+</template>
